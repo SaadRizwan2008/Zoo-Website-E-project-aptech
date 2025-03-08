@@ -1,0 +1,458 @@
+body {
+  background-image: url("../asset/bg3.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  /* Use will-change to improve performance for elements that will animate */
+  will-change: transform;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar styling with improved performance */
+.navbar {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+/* Hero section with better performance */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-end;
+  /* Hardware acceleration for smoother animations */
+  transform: translateZ(0);
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+/* Typography improvements */
+.h1 {
+  color: #626f47;
+  font-family: "Oswald", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+}
+
+/* Font family definitions */
+.irish-grover-regular {
+  font-family: "Irish Grover", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navbar-brand {
+  font-family: "Irish Grover", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #473e27;
+}
+
+.nav-link {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #000;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.merriweather-regular {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Optimized nav link hover effect */
+.nav-link::before {
+  background: #626f47;
+  border-radius: 15px;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-out; /* Faster transition */
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.oswald {
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lead {
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  color: #000000;
+}
+
+/* Improved background styles */
+.sec1 {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Optimized scroll animation */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Use transform instead of clip-path */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.block {
+  animation: appear 0.5s ease-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+/* Color and style definitions */
+.g1 {
+  font-family: "Irish Grover", serif;
+  color: #5c4033;
+}
+
+.ft1 {
+  background-color: #626f47;
+  color: #5c4033;
+  font-family: "Irish Grover", serif;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.c1 {
+  color: #000000;
+  font-family: "Irish Grover", serif;
+  font-size: 20px;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.c1:hover {
+  color: #5c4033;
+  text-decoration: none;
+}
+
+/* Improved button with better performance */
+.btn1 {
+  --color: #626f47;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color 0.3s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  text-align: center;
+}
+
+.btn1:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: all 0.5s ease-out; /* Smoother transition */
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+.btn1:hover {
+  color: #fff;
+}
+
+.btn1:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.btn1:active:before {
+  background: #626f47;
+  transition: background 0s;
+}
+
+/* About page specific styles */
+.hero-section {
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-section h1 {
+  font-family: "Oswald", serif;
+  color: #626f47;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  -webkit-animation: tracking-in-expand 0.7s
+    cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
+}
+
+.hero-section p {
+  font-family: "Merriweather", serif;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Mobile-friendly Timeline Styles */
+
+/* Base timeline styles (keeping some of your existing styling) */
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+
+/* Main timeline vertical line - hide on mobile */
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background-color: #e9ecef;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  clear: both;
+}
+
+.timeline-badge {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  left: 50%;
+  margin-left: -25px;
+  border-radius: 50%;
+  z-index: 100;
+  background-color: #626f47;
+  color: #fff;
+}
+
+.timeline-panel {
+  width: 46%;
+  float: left;
+
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  background: #fefae0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) .timeline-panel {
+  float: right;
+}
+
+.timeline-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline-heading h3 {
+  margin-top: 0;
+  color: #626f47;
+  font-size: 1.5rem;
+}
+
+.timeline-heading h4 {
+  font-size: 1.2rem;
+}
+
+.timeline-body p {
+  margin-bottom: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767.98px) {
+  /* Change the timeline layout for mobile */
+  .timeline:before {
+    left: 40px; /* Move the line to the left side */
+  }
+
+  .timeline-badge {
+    left: 40px; /* Align badges with the line */
+    margin-left: 0;
+  }
+
+  .timeline-panel {
+    width: calc(100% - 90px); /* Give more width to the panel */
+    float: right !important; /* All panels float right */
+    margin-left: 90px; /* Create space for badge and line */
+  }
+
+  .timeline-item:nth-child(even) .timeline-panel {
+    float: right; /* Override for even items */
+  }
+
+  /* Make panels more compact */
+  .timeline-panel {
+    padding: 15px;
+  }
+
+  .timeline-heading h3 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-heading h4 {
+    font-size: 1.1rem;
+  }
+
+  /* Help with vertical spacing */
+  .timeline-item {
+    margin-bottom: 25px;
+  }
+
+  /* Make text inside panels more compact */
+  .timeline-body p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* Additional fix for very small screens */
+@media (max-width: 575.98px) {
+  .timeline-panel {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+    padding: 12px;
+  }
+
+  .timeline:before {
+    left: 30px;
+  }
+
+  .timeline-badge {
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Optional: Add a light background to the timeline section for better readability */
+.sec2 {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 20px 0;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.features-section {
+  padding: 80px 0;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fefae0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  color: #626f47;
+  font-size: 3rem;
+
+  margin-bottom: 20px;
+}
